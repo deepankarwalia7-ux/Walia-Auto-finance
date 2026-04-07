@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Corner Fuel Auto Financing | Car Sales, Financing & Credit Repair</title>
-  <meta name="description" content="Bad credit? No problem. Get approved for a vehicle, financing, and credit repair support in one place." />
+  <title>Corner Fuel Auto Financing | Auto Approval & Credit Help</title>
+  <meta name="description" content="Bad credit, collections, or no credit? Get auto approval help and credit support in one place." />
   <style>
     :root {
       --bg: #0b0b0f;
@@ -18,6 +18,12 @@
       --radius: 18px;
       --shadow: 0 14px 40px rgba(0,0,0,.28);
       --max: 1180px;
+      --success-bg: rgba(37, 211, 102, 0.12);
+      --success-border: rgba(37, 211, 102, 0.35);
+      --success-text: #9ef0bb;
+      --danger-bg: rgba(255, 77, 77, 0.1);
+      --danger-border: rgba(255, 77, 77, 0.3);
+      --danger-text: #ffb0b0;
     }
 
     * { box-sizing: border-box; }
@@ -42,7 +48,7 @@
       top: 0;
       z-index: 30;
       backdrop-filter: blur(12px);
-      background: rgba(11,11,15,.82);
+      background: rgba(11,11,15,.84);
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
 
@@ -82,7 +88,12 @@
       border-radius: 999px;
       font-weight: 700;
       box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform .15s ease, opacity .15s ease;
     }
+
+    .button:hover { transform: translateY(-1px); }
+    .button:active { transform: translateY(0); }
 
     .button.secondary {
       background: transparent;
@@ -91,13 +102,19 @@
       box-shadow: none;
     }
 
+    .button.whatsapp {
+      background: #25D366;
+      color: #111;
+      border-color: rgba(37, 211, 102, 0.5);
+    }
+
     .hero {
       padding: 72px 0 44px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.15fr .85fr;
       gap: 28px;
       align-items: stretch;
     }
@@ -134,6 +151,13 @@
       font-size: 1.04rem;
     }
 
+    .hero-actions {
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 18px;
+    }
+
     .trust-row {
       display: flex;
       flex-wrap: wrap;
@@ -148,6 +172,25 @@
       border: 1px solid var(--border);
       color: #f6e4a6;
       font-size: .92rem;
+    }
+
+    .mini-proof {
+      margin-top: 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-proof div {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .mini-proof strong {
+      color: var(--text);
     }
 
     .form-title {
@@ -174,6 +217,12 @@
       background: var(--soft);
       color: var(--text);
       font: inherit;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(212,175,55,.55);
+      box-shadow: 0 0 0 3px rgba(212,175,55,.09);
     }
 
     input::placeholder, textarea::placeholder { color: #8f90a0; }
@@ -181,6 +230,22 @@
     .small {
       font-size: .83rem;
       color: var(--muted);
+    }
+
+    .tiny-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .tiny-points span {
+      font-size: .8rem;
+      color: var(--muted);
+      padding: 7px 10px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 999px;
+      background: rgba(255,255,255,.02);
     }
 
     section {
@@ -204,6 +269,12 @@
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 18px;
     }
 
@@ -262,6 +333,66 @@
     .cta h3 { margin: 0 0 6px; font-size: 1.5rem; }
     .cta p { margin: 0; color: var(--muted); }
 
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .notice {
+      display: none;
+      padding: 14px 16px;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      font-size: .93rem;
+      border: 1px solid transparent;
+    }
+
+    .notice.success {
+      display: none;
+      background: var(--success-bg);
+      border-color: var(--success-border);
+      color: var(--success-text);
+    }
+
+    .notice.error {
+      display: none;
+      background: var(--danger-bg);
+      border-color: var(--danger-border);
+      color: var(--danger-text);
+    }
+
+    .comparison {
+      display: grid;
+      gap: 12px;
+    }
+
+    .comparison .line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding-bottom: 10px;
+    }
+
+    .comparison .line:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .badge {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 700;
+      background: rgba(212,175,55,.12);
+      border: 1px solid var(--border);
+      color: #f6e4a6;
+      white-space: nowrap;
+    }
+
     footer {
       padding: 28px 0 42px;
       color: var(--muted);
@@ -271,12 +402,18 @@
     @media (max-width: 960px) {
       .hero-grid,
       .grid-3,
-      .services {
+      .grid-2,
+      .services,
+      .split-section {
         grid-template-columns: 1fr;
       }
 
       .nav-links {
         display: none;
+      }
+
+      .hero {
+        padding-top: 42px;
       }
     }
   </style>
@@ -288,7 +425,9 @@
       <div class="nav-links">
         <a href="#services">Services</a>
         <a href="#how">How It Works</a>
-        <a href="#apply">Apply</a>
+        <a href="#apply">Auto Approval</a>
+        <a href="#credit-help">Credit Help</a>
+        <a href="#why-us">Why Us</a>
         <a href="tel:+16723806005">Call</a>
       </div>
       <a class="button" href="#apply">Get Approved</a>
@@ -298,42 +437,58 @@
   <header class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <div class="eyebrow">Car Sales • Financing • Credit Repair</div>
-        <h1>Bad Credit? No Problem. Get Approved and Drive Today.</h1>
+        <div class="eyebrow">Direct Auto Approval • Credit Help • Collection Removal</div>
+        <h1>Skip the Middleman. Get Approved Directly.</h1>
         <p>
-          One place for vehicle sourcing, financing support, and credit repair guidance.
-          Whether you have bad credit, no credit, collections, or you are new to Canada,
-          we help you move forward.
+          Bad credit, no credit, collections, repos, or new to Canada — we help you move toward
+          the right vehicle and better credit options without sending you through a generic lead marketplace.
         </p>
-        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 18px;">
+
+        <div class="hero-actions">
           <a class="button" href="#apply">Apply Now</a>
           <a class="button secondary" href="tel:+16723806005">Call Now</a>
+          <a class="button whatsapp" href="https://wa.me/16723806005?text=Hi%20I%27m%20interested%20in%20auto%20financing" target="_blank" rel="noreferrer">WhatsApp</a>
         </div>
+
         <div class="trust-row">
-          <div class="pill">All Credit Types</div>
+          <div class="pill">All Credit Types Welcome</div>
           <div class="pill">0 Down Options</div>
-          <div class="pill">Fast Approval Support</div>
+          <div class="pill">Fast Response</div>
           <div class="pill">BC & Alberta</div>
+        </div>
+
+        <div class="mini-proof">
+          <div><strong>Direct Support:</strong> Talk to a real person, not a generic lead broker.</div>
+          <div><strong>Fast Follow-Up:</strong> The faster the follow-up, the higher the approval chance.</div>
+          <div><strong>Auto + Credit Combo:</strong> Vehicle help and credit issue support in one place.</div>
         </div>
       </div>
 
       <aside class="panel" id="apply">
-        <h2 class="form-title">Start Your Approval</h2>
-        <p class="form-sub">This starter form can email you directly using FormSubmit.</p>
-        <form action="https://formsubmit.co/deepankarwalia7@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="New auto finance lead" />
+        <div id="autoSuccess" class="notice success"></div>
+        <div id="autoError" class="notice error"></div>
+
+        <h2 class="form-title">Get Approved Today</h2>
+        <p class="form-sub">Quick application. Fast response. No obligation.</p>
+
+        <form id="autoForm" action="https://formsubmit.co/ajax/deepankarwalia7@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="AUTO LEAD - Corner Fuel Auto Financing" />
           <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="form_type" value="Auto Approval Lead" />
+
           <input type="text" name="full_name" placeholder="Full Name" required />
           <input type="tel" name="phone" placeholder="Phone Number" required />
           <input type="email" name="email" placeholder="Email Address" required />
           <input type="text" name="monthly_income" placeholder="Monthly Income" required />
+
           <select name="employment_type" required>
-            <option value="">Employment Type</option>
+            <option value="">Employment Status</option>
             <option>Employed</option>
             <option>Self-Employed</option>
             <option>Student</option>
             <option>Other</option>
           </select>
+
           <select name="credit_range" required>
             <option value="">Credit Score Range</option>
             <option>700+</option>
@@ -342,46 +497,84 @@
             <option>Below 500</option>
             <option>Not Sure</option>
           </select>
+
           <select name="vehicle_type" required>
             <option value="">Looking For</option>
             <option>Car</option>
             <option>SUV</option>
             <option>Truck</option>
+            <option>Van</option>
           </select>
+
           <select name="timeline" required>
             <option value="">When Do You Need It?</option>
             <option>ASAP</option>
             <option>This Week</option>
+            <option>This Month</option>
             <option>Just Exploring</option>
           </select>
-          <button class="button" type="submit">Submit Application</button>
-          <div class="small">By submitting, you agree to be contacted regarding vehicle financing and approval options.</div>
+
+          <button class="button" type="submit" id="autoSubmitBtn">Submit Application</button>
+
+          <div class="tiny-points">
+            <span>60-second application</span>
+            <span>No obligation</span>
+            <span>Fast response</span>
+          </div>
+
+          <div class="small">
+            By submitting, you agree to be contacted regarding vehicle financing and approval options.
+          </div>
         </form>
       </aside>
     </div>
   </header>
 
+  <section id="why-us">
+    <div class="container">
+      <div class="section-head">
+        <h2>Why Choose Corner Fuel</h2>
+        <p>Built for direct response, fast follow-up, and real lead conversion.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Direct Approvals</h3>
+          <p>You are not filling out a generic broker form and waiting to be passed around. We deal directly.</p>
+        </div>
+        <div class="card">
+          <h3>Credit Problem Support</h3>
+          <p>Collections, mismatches, and weak files can be addressed instead of ignored.</p>
+        </div>
+        <div class="card">
+          <h3>Faster Action</h3>
+          <p>Serious leads need fast contact. That is how more deals get done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="services">
     <div class="container">
       <div class="section-head">
         <h2>Everything Under One Roof</h2>
-        <p>Instead of sending people to three different places, you handle the whole path.</p>
+        <p>Car shopping, financing, and credit help — all in one place.</p>
       </div>
       <div class="services">
         <div class="card">
           <div class="service-number">1</div>
           <h3>Car Sales</h3>
-          <p>Help clients find the right vehicle based on budget, payment target, and approval strength.</p>
+          <p>We help you find the right vehicle based on your budget and needs.</p>
         </div>
         <div class="card">
           <div class="service-number">2</div>
-          <h3>Financing</h3>
-          <p>Position the business around approvals for all credit profiles, including harder files.</p>
+          <h3>Auto Financing</h3>
+          <p>Good credit, bad credit, new to credit — we work to get you approved.</p>
         </div>
         <div class="card">
           <div class="service-number">3</div>
-          <h3>Credit Repair</h3>
-          <p>Offer credit rebuilding support so clients can qualify for better options over time.</p>
+          <h3>Credit Help</h3>
+          <p>Need help with mismatches, collections, or reporting issues? We help you understand your options.</p>
         </div>
       </div>
     </div>
@@ -391,21 +584,95 @@
     <div class="container">
       <div class="section-head">
         <h2>How It Works</h2>
-        <p>Simple process. Quick intake. Fast follow-up.</p>
+        <p>Simple steps. Fast response. No pressure.</p>
       </div>
       <div class="grid-3">
         <div class="card">
           <h3>Apply Online</h3>
-          <p>The client fills the form with income, credit range, and vehicle interest.</p>
+          <p>Fill out the quick form with your basic details and what you need.</p>
         </div>
         <div class="card">
-          <h3>Review the File</h3>
-          <p>You contact the lead, verify details, and decide the best path: financing first, credit repair first, or both.</p>
+          <h3>We Contact You</h3>
+          <p>We review your information, confirm the details, and explain the next best step.</p>
         </div>
         <div class="card">
-          <h3>Close the Deal</h3>
-          <p>You move them toward the right vehicle and keep the long-term relationship through follow-up.</p>
+          <h3>Move Forward</h3>
+          <p>We help match you with the right approval path, vehicle option, or credit support route.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="grid-2">
+        <div class="card">
+          <h3>Recent Approval Examples</h3>
+          <p>520 score — SUV approved.</p>
+          <p style="margin-top:10px;">Collections on file — financing path found.</p>
+          <p style="margin-top:10px;">New to Canada — approval support provided.</p>
+        </div>
+        <div class="card">
+          <h3>How This Beats Generic Lead Sites</h3>
+          <div class="comparison">
+            <div class="line"><span>Direct support instead of broker-style handoff</span><span class="badge">Better</span></div>
+            <div class="line"><span>Auto approval + credit issue help together</span><span class="badge">Stronger</span></div>
+            <div class="line"><span>Faster WhatsApp and phone follow-up</span><span class="badge">Higher Intent</span></div>
+            <div class="line"><span>Cleaner, local BC & Alberta positioning</span><span class="badge">Sharper</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="credit-help">
+    <div class="container split-section">
+      <div class="panel">
+        <div id="creditSuccess" class="notice success"></div>
+        <div id="creditError" class="notice error"></div>
+
+        <h2 class="form-title">Credit Mismatch & Collection Help</h2>
+        <p class="form-sub">Wrong accounts, collections, or identity mismatches? Start here.</p>
+
+        <form id="creditForm" action="https://formsubmit.co/ajax/deepankarwalia7@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="CREDIT LEAD - Corner Fuel Auto Financing" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="form_type" value="Credit Help Lead" />
+
+          <input type="text" name="full_name" placeholder="Full Name" required />
+          <input type="tel" name="phone" placeholder="Phone Number" required />
+          <input type="email" name="email" placeholder="Email Address" />
+
+          <select name="issue_type" required>
+            <option value="">Select Issue</option>
+            <option>Collection Removal</option>
+            <option>Wrong Account Reporting</option>
+            <option>Identity Mismatch</option>
+            <option>Duplicate Accounts</option>
+            <option>General Credit Review</option>
+          </select>
+
+          <textarea name="details" rows="5" placeholder="Briefly explain the issue"></textarea>
+
+          <button class="button" type="submit" id="creditSubmitBtn">Submit Credit Request</button>
+
+          <div class="tiny-points">
+            <span>Quick review</span>
+            <span>Confidential</span>
+            <span>Fast response</span>
+          </div>
+
+          <div class="small">
+            By submitting, you agree to be contacted regarding credit support and related service options.
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>Best Reasons to Use This Form</h3>
+        <p>Use this if your credit report has items that look wrong, unfair, duplicated, or unresolved.</p>
+        <p style="margin-top:12px;">This keeps your credit-related requests separate from auto approval leads so your file gets handled the right way from the start.</p>
+        <p style="margin-top:12px;">Customers understand this instantly. That means less confusion and better conversion quality.</p>
       </div>
     </div>
   </section>
@@ -414,12 +681,12 @@
     <div class="container">
       <div class="cta">
         <div>
-          <h3>Stop Getting Declined. Start Getting Approved.</h3>
-          <p>Launch this page fast, run ads, and call every lead quickly.</p>
+          <h3>Stop Getting Declined. Start Moving Forward.</h3>
+          <p>Apply online now or message directly for a faster response.</p>
         </div>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
           <a class="button" href="#apply">Apply Now</a>
-          <a class="button secondary" href="https://wa.me/16723806005" target="_blank" rel="noreferrer">WhatsApp</a>
+          <a class="button whatsapp" href="https://wa.me/16723806005?text=Hi%20I%20want%20help%20with%20auto%20approval%20or%20credit%20help" target="_blank" rel="noreferrer">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -430,5 +697,77 @@
       © 2026 Corner Fuel Auto Financing. All rights reserved.
     </div>
   </footer>
+
+  <script>
+    const whatsappNumber = "16723806005";
+
+    async function handleAjaxForm(formId, successId, errorId, submitBtnId, whatsappMessage) {
+      const form = document.getElementById(formId);
+      const successBox = document.getElementById(successId);
+      const errorBox = document.getElementById(errorId);
+      const submitBtn = document.getElementById(submitBtnId);
+
+      if (!form) return;
+
+      form.addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        successBox.style.display = "none";
+        errorBox.style.display = "none";
+
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting...";
+
+        try {
+          const formData = new FormData(form);
+
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+              "Accept": "application/json"
+            }
+          });
+
+          if (response.ok) {
+            successBox.textContent = "Thank you. Your request was submitted successfully. Redirecting you to WhatsApp now...";
+            successBox.style.display = "block";
+            form.reset();
+
+            setTimeout(() => {
+              const encodedMessage = encodeURIComponent(whatsappMessage);
+              window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+            }, 900);
+          } else {
+            errorBox.textContent = "Something went wrong while sending your request. Please try again or contact us directly by phone or WhatsApp.";
+            errorBox.style.display = "block";
+          }
+        } catch (error) {
+          errorBox.textContent = "Unable to submit right now. Please try again or message us directly on WhatsApp.";
+          errorBox.style.display = "block";
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      });
+    }
+
+    handleAjaxForm(
+      "autoForm",
+      "autoSuccess",
+      "autoError",
+      "autoSubmitBtn",
+      "Hi, I just submitted the auto approval form and want to move forward."
+    );
+
+    handleAjaxForm(
+      "creditForm",
+      "creditSuccess",
+      "creditError",
+      "creditSubmitBtn",
+      "Hi, I just submitted the credit help form and want to discuss my issue."
+    );
+  </script>
 </body>
 </html>
