@@ -2,433 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Walia Auto Finance | Car Sales, Financing & Credit Repair</title>
-  <meta name="description" content="Bad credit? No problem. Get approved for a vehicle, financing, and credit repair support in one place." />
-  <style>
-    :root {
-      --bg: #0b0b0f;
-      --panel: #14141b;
-      --soft: #1c1c26;
-      --text: #f5f5f7;
-      --muted: #b8b8c2;
-      --gold: #d4af37;
-      --gold-dark: #a98516;
-      --border: rgba(212, 175, 55, 0.22);
-      --radius: 18px;
-      --shadow: 0 14px 40px rgba(0,0,0,.28);
-      --max: 1180px;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Corner Fuel Auto Sales | Get Approved Today</title>
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+  <style>
     body {
       margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #09090d 0%, #101017 100%);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      text-align: center;
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      backdrop-filter: blur(12px);
-      background: rgba(11,11,15,.82);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-      gap: 16px;
-    }
-
-    .brand {
-      font-weight: 800;
-      letter-spacing: .3px;
-      font-size: 1.08rem;
-    }
-
-    .brand span { color: var(--gold); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: var(--muted);
-      font-size: .96rem;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, var(--gold) 0%, var(--gold-dark) 100%);
-      color: #111;
-      padding: 14px 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      box-shadow: var(--shadow);
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: none;
-    }
-
-    .hero {
-      padding: 72px 0 44px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .hero-copy,
-    .panel {
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border: 1px solid rgba(255,255,255,.06);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .eyebrow {
-      display: inline-block;
-      color: var(--gold);
-      font-weight: 700;
-      font-size: .88rem;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+    header {
+      padding: 60px 20px;
     }
 
     h1 {
-      margin: 0 0 14px;
-      font-size: clamp(2rem, 4vw, 4rem);
-      line-height: 1.05;
-      letter-spacing: -.03em;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
 
-    .hero p {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 1.04rem;
+    p {
+      color: #ccc;
     }
 
-    .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 20px 0 0;
+    .btn {
+      display: inline-block;
+      margin: 20px 10px;
+      padding: 12px 20px;
+      background: gold;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
     }
 
-    .pill {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(212,175,55,.08);
-      border: 1px solid var(--border);
-      color: #f6e4a6;
-      font-size: .92rem;
-    }
-
-    .form-title {
-      margin: 0 0 8px;
-      font-size: 1.3rem;
-    }
-
-    .form-sub {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: .95rem;
+    .section {
+      padding: 40px 20px;
     }
 
     form {
-      display: grid;
-      gap: 12px;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 14px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: var(--soft);
-      color: var(--text);
-      font: inherit;
-    }
-
-    input::placeholder, textarea::placeholder { color: #8f90a0; }
-
-    .small {
-      font-size: .83rem;
-      color: var(--muted);
-    }
-
-    section {
-      padding: 28px 0;
-    }
-
-    .section-head {
-      margin-bottom: 18px;
-    }
-
-    .section-head h2 {
-      margin: 0 0 8px;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,.06);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .service-number {
-      width: 42px;
-      height: 42px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: rgba(212,175,55,.12);
-      border: 1px solid var(--border);
-      color: var(--gold);
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-
-    .cta {
-      padding: 28px;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(212,175,55,.14), rgba(212,175,55,.05));
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
+      max-width: 400px;
+      margin: auto;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .cta h3 { margin: 0 0 6px; font-size: 1.5rem; }
-    .cta p { margin: 0; color: var(--muted); }
+    input, select {
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+    }
 
     footer {
-      padding: 28px 0 42px;
-      color: var(--muted);
-      font-size: .93rem;
-    }
-
-    @media (max-width: 960px) {
-      .hero-grid,
-      .grid-3,
-      .services {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
+      margin-top: 40px;
+      padding: 20px;
+      color: #888;
     }
   </style>
 </head>
+
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <div class="brand">Walia <span>Auto Finance</span></div>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#how">How It Works</a>
-        <a href="#apply">Apply</a>
-        <a href="tel:+16723806005">Call</a>
-      </div>
-      <a class="button" href="#apply">Get Approved</a>
-    </div>
-  </nav>
 
-  <header class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow">Car Sales • Financing • Credit Repair</div>
-        <h1>Bad Credit? No Problem. Get Approved and Drive Today.</h1>
-        <p>
-          One place for vehicle sourcing, financing support, and credit repair guidance.
-          Whether you have bad credit, no credit, collections, or you are new to Canada,
-          we help you move forward.
-        </p>
-        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 18px;">
-          <a class="button" href="#apply">Apply Now</a>
-          <a class="button secondary" href="tel:+16723806005">Call Now</a>
-        </div>
-        <div class="trust-row">
-          <div class="pill">All Credit Types</div>
-          <div class="pill">0 Down Options</div>
-          <div class="pill">Fast Approval Support</div>
-          <div class="pill">BC & Alberta</div>
-        </div>
-      </div>
+<header>
+  <h1>Corner Fuel Auto Sales</h1>
+  <p>Bad Credit? No Problem. Get Approved & Drive Today.</p>
 
-      <aside class="panel" id="apply">
-        <h2 class="form-title">Start Your Approval</h2>
-        <p class="form-sub">This starter form can email you directly using FormSubmit. Replace the email before launch.</p>
-        <form action="https://formsubmit.co/deepankarwalia7@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="New auto finance lead" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="text" name="full_name" placeholder="Full Name" required />
-          <input type="tel" name="phone" placeholder="Phone Number" required />
-          <input type="email" name="email" placeholder="Email Address" required />
-          <input type="text" name="monthly_income" placeholder="Monthly Income" required />
-          <select name="employment_type" required>
-            <option value="">Employment Type</option>
-            <option>Employed</option>
-            <option>Self-Employed</option>
-            <option>Student</option>
-            <option>Other</option>
-          </select>
-          <select name="credit_range" required>
-            <option value="">Credit Score Range</option>
-            <option>700+</option>
-            <option>600-699</option>
-            <option>500-599</option>
-            <option>Below 500</option>
-            <option>Not Sure</option>
-          </select>
-          <select name="vehicle_type" required>
-            <option value="">Looking For</option>
-            <option>Car</option>
-            <option>SUV</option>
-            <option>Truck</option>
-          </select>
-          <select name="timeline" required>
-            <option value="">When Do You Need It?</option>
-            <option>ASAP</option>
-            <option>This Week</option>
-            <option>Just Exploring</option>
-          </select>
-          <button class="button" type="submit">Submit Application</button>
-          <div class="small">Replace the form email, phone number, brand name, and compliance language before going live.</div>
-        </form>
-      </aside>
-    </div>
-  </header>
+  <a href="#apply" class="btn">Apply Now</a>
+  <a href="tel:6723806005" class="btn">Call Now</a>
+</header>
 
-  <section id="services">
-    <div class="container">
-      <div class="section-head">
-        <h2>Everything Under One Roof</h2>
-        <p>Instead of sending people to three different places, you handle the whole path.</p>
-      </div>
-      <div class="services">
-        <div class="card">
-          <div class="service-number">1</div>
-          <h3>Car Sales</h3>
-          <p>Help clients find the right vehicle based on budget, payment target, and approval strength.</p>
-        </div>
-        <div class="card">
-          <div class="service-number">2</div>
-          <h3>Financing</h3>
-          <p>Position the business around approvals for all credit profiles, including harder files.</p>
-        </div>
-        <div class="card">
-          <div class="service-number">3</div>
-          <h3>Credit Repair</h3>
-          <p>Offer credit rebuilding support so clients can qualify for better options over time.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="section">
+  <h2>We Help With</h2>
+  <p>✔ Bad Credit</p>
+  <p>✔ No Credit</p>
+  <p>✔ Collections / Repo</p>
+  <p>✔ New to Canada</p>
+</section>
 
-  <section id="how">
-    <div class="container">
-      <div class="section-head">
-        <h2>How It Works</h2>
-        <p>Simple process. Quick intake. Fast follow-up.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Apply Online</h3>
-          <p>The client fills the form with income, credit range, and vehicle interest.</p>
-        </div>
-        <div class="card">
-          <h3>Review the File</h3>
-          <p>You contact the lead, verify details, and decide the best path: financing first, credit repair first, or both.</p>
-        </div>
-        <div class="card">
-          <h3>Close the Deal</h3>
-          <p>You move them toward the right vehicle and keep the long-term relationship through follow-up.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="section" id="apply">
+  <h2>Get Approved</h2>
 
-  <section>
-    <div class="container">
-      <div class="cta">
-        <div>
-          <h3>Stop Getting Declined. Start Getting Approved.</h3>
-          <p>Launch this page fast, run ads, and call every lead quickly.</p>
-        </div>
-        <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a class="button" href="#apply">Apply Now</a>
-          <a class="button secondary" href="https://wa.me/16723806005" target="_blank" rel="noreferrer">WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <form action="https://formsubmit.co/deepankarwalia7@gmail.com" method="POST">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    
+    <input type="text" name="income" placeholder="Monthly Income" required>
 
-  <footer>
-    <div class="container">
-      © 2026 Walia Auto Finance. All rights reserved.
-    </div>
-  </footer>
+    <select name="credit">
+      <option value="">Credit Score</option>
+      <option>700+</option>
+      <option>600-699</option>
+      <option>500-599</option>
+      <option>Below 500</option>
+      <option>Not Sure</option>
+    </select>
+
+    <select name="vehicle">
+      <option value="">Vehicle Type</option>
+      <option>Car</option>
+      <option>SUV</option>
+      <option>Truck</option>
+    </select>
+
+    <button class="btn" type="submit">Submit Application</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 Corner Fuel Auto Sales. All rights reserved.
+</footer>
+
 </body>
 </html>
